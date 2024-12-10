@@ -176,7 +176,8 @@ function getParallelepipedDiagonal(a, b, c) {
  *   1678, 3  => 2000
  */
 function roundToPowerOfTen(num, pow) {
-  throw new Error('Not implemented');
+  const factor = 10 ** pow;
+  return Math.round(num / factor) * factor;
 }
 
 /**
@@ -197,7 +198,16 @@ function roundToPowerOfTen(num, pow) {
  *   17 => true
  */
 function isPrime(n) {
-  throw new Error('Not implemented');
+  if (n <= 1) return false;
+  if (n === 2) return true;
+  if (n % 2 === 0) return false;
+  const limit = Math.sqrt(n);
+  for (let i = 3; i <= limit; i += 2) {
+    if (n % i === 0) {
+      return false;
+    }
+  }
+  return true;
 }
 
 /**
@@ -216,7 +226,9 @@ function isPrime(n) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-  throw new Error('Not implemented');
+  const x = Number(value);
+  if (Number.isNaN(x)) return def;
+  return x;
 }
 
 /**
@@ -231,7 +243,7 @@ function toNumber(value, def) {
  *   0  => 0
  */
 function getCube(num) {
-  throw new Error('Not implemented');
+  return num ** 3;
 }
 
 /**
@@ -248,7 +260,17 @@ function getCube(num) {
  *   10 => 55
  */
 function getFibonacciNumber(index) {
-  throw new Error('Not implemented');
+  if (index === 0) {
+    return 0;
+  }
+  let a = 0;
+  let b = 1;
+  for (let i = 2; i <= index; i += 1) {
+    const temp = a + b;
+    a = b;
+    b = temp;
+  }
+  return b;
 }
 
 /**
@@ -263,7 +285,11 @@ function getFibonacciNumber(index) {
  *   1  => 1
  */
 function getSumToN(n) {
-  throw new Error('Not implemented');
+  let sum = 0;
+  for (let i = 1; i <= n; i += 1) {
+    sum += i;
+  }
+  return sum;
 }
 
 /**
@@ -278,7 +304,13 @@ function getSumToN(n) {
  *   5   => 5  // 5
  */
 function getSumOfDigits(num) {
-  throw new Error('Not implemented');
+  let sum = 0;
+  let cur = num;
+  while (num % 10 > 0) {
+    sum += cur % 10;
+    cur /= 10;
+  }
+  return sum;
 }
 
 /**
@@ -293,7 +325,9 @@ function getSumOfDigits(num) {
  *   15  => false
  */
 function isPowerOfTwo(num) {
-  throw new Error('Not implemented');
+  if (num === 1) return true;
+  if (num === 0 || num % 2 !== 0) return false;
+  return isPowerOfTwo(num / 2);
 }
 
 /**
