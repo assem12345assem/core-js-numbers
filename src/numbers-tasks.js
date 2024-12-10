@@ -307,7 +307,7 @@ function isPowerOfTwo(num) {
  *   Math.PI / 2 => 1
  */
 function getSine(num) {
-  throw new Error('Not implemented');
+  return Math.sin(num);
 }
 
 /**
@@ -322,7 +322,7 @@ function getSine(num) {
  * 2, 2    => '10'
  */
 function numberToStringInBase(number, base) {
-  throw new Error('Not implemented');
+  return number.toString(base);
 }
 
 /**
@@ -336,7 +336,7 @@ function numberToStringInBase(number, base) {
  * 12345, 2    => '1.23e+4'
  */
 function toExponential(number, fractionDigits) {
-  throw new Error('Not implemented');
+  return Number.parseFloat(number).toExponential(fractionDigits);
 }
 
 /**
@@ -351,7 +351,9 @@ function toExponential(number, fractionDigits) {
  * 12.345, 1   => '12.3'
  */
 function toFixed(number, fractionDigits) {
-  throw new Error('Not implemented');
+  const x = number;
+  const y = x.toFixed(fractionDigits);
+  return y.toString();
 }
 
 /**
@@ -367,7 +369,8 @@ function toFixed(number, fractionDigits) {
  * 12.345, 4   => '12.35'
  */
 function toPrecision(number, precision) {
-  throw new Error('Not implemented');
+  const x = number;
+  return x.toPrecision(precision);
 }
 
 /**
@@ -381,7 +384,7 @@ function toPrecision(number, precision) {
  * Number(-5)    => -5
  */
 function getNumberValue(number) {
-  throw new Error('Not implemented');
+  return number;
 }
 
 /**
@@ -400,7 +403,7 @@ function getNumberValue(number) {
  * '5'      => false
  */
 function isNumber(number) {
-  throw new Error('Not implemented');
+  return typeof number === 'number' && !Number.isNaN(number);
 }
 
 /**
@@ -415,7 +418,7 @@ function isNumber(number) {
  * '5'  => false
  */
 function isInteger(number) {
-  throw new Error('Not implemented');
+  return Number.isInteger(number);
 }
 
 /**
