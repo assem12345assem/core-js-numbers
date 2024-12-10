@@ -429,7 +429,7 @@ function isInteger(number) {
  * 'abcdefgh'      => NaN
  */
 function getFloatOnString(str) {
-  throw new Error('Not implemented');
+  return parseFloat(str);
 }
 
 /**
@@ -447,7 +447,7 @@ function getFloatOnString(str) {
  * '10', 8              => 8
  */
 function getIntegerOnString(str, base) {
-  throw new Error('Not implemented');
+  return parseInt(str, base);
 }
 
 /**
@@ -462,7 +462,7 @@ function getIntegerOnString(str, base) {
  * 2 ** 53  => false
  */
 function isSafeInteger(number) {
-  throw new Error('Not implemented');
+  return Number.isSafeInteger(number);
 }
 
 /**
@@ -476,7 +476,7 @@ function isSafeInteger(number) {
  * -5.1 => -6
  */
 function roundToSmallestInteger(number) {
-  throw new Error('Not implemented');
+  return Math.floor(number);
 }
 
 /**
@@ -490,7 +490,7 @@ function roundToSmallestInteger(number) {
  * -5.9 => -5
  */
 function roundToLargestInteger(number) {
-  throw new Error('Not implemented');
+  return Math.ceil(number);
 }
 
 /**
