@@ -505,7 +505,7 @@ function roundToLargestInteger(number) {
  * -5.5 => -5
  */
 function roundToNearestInteger(number) {
-  throw new Error('Not implemented');
+  return Math.round(number);
 }
 
 /**
@@ -520,7 +520,7 @@ function roundToNearestInteger(number) {
  * -5.5 => -5
  */
 function getIntegerPartNumber(number) {
-  throw new Error('Not implemented');
+  return Math.trunc(number);
 }
 
 /**
@@ -536,7 +536,7 @@ function getIntegerPartNumber(number) {
  * 0.1, 0.2, 0.3 => 0.6
  */
 function getSumOfNumbers(x1, x2, x3) {
-  throw new Error('Not implemented');
+  return x1 + x2 + x3;
 }
 
 /**
@@ -552,7 +552,7 @@ function getSumOfNumbers(x1, x2, x3) {
  * 0, 5   => 5
  */
 function getMaxNumber(firstNumber, secondNumber) {
-  throw new Error('Not implemented');
+  return Math.max(firstNumber, secondNumber);
 }
 
 /**
@@ -568,7 +568,7 @@ function getMaxNumber(firstNumber, secondNumber) {
  * -1, 1 => -1 | 0 | 1
  */
 function getRandomInteger(min, max) {
-  throw new Error('Not implemented');
+  return Math.random() * (max - min) + min;
 }
 
 /**
