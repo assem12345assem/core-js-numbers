@@ -424,7 +424,7 @@ function toPrecision(number, precision) {
  * Number(-5)    => -5
  */
 function getNumberValue(number) {
-  return +number;
+  return number.valueOf();
 }
 
 /**
@@ -477,7 +477,7 @@ function isInteger(number) {
  * 'abcdefgh'      => NaN
  */
 function getFloatOnString(str) {
-  return parseFloat(str);
+  return Number.parseFloat(str);
 }
 /**
  * Returns an integer of the specified base or, if the number cannot be parsed
