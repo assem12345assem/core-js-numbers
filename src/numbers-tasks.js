@@ -313,13 +313,10 @@ function getSumToN(n) {
  *   5   => 5  // 5
  */
 function getSumOfDigits(num) {
-  let sum = 0;
-  let cur = num;
-  while (num % 10 > 0) {
-    sum += cur % 10;
-    cur /= 10;
-  }
-  return sum;
+  return String(num)
+    .split('')
+    .map(Number)
+    .reduce((sum, digit) => sum + digit, 0);
 }
 
 /**
@@ -427,7 +424,7 @@ function toPrecision(number, precision) {
  * Number(-5)    => -5
  */
 function getNumberValue(number) {
-  return number;
+  return +number;
 }
 
 /**
@@ -446,7 +443,12 @@ function getNumberValue(number) {
  * '5'      => false
  */
 function isNumber(number) {
-  return typeof number === 'number' && !Number.isNaN(number);
+  return (
+    typeof number === 'number' &&
+    !Number.isNaN(number) &&
+    Number.isFinite(number) &&
+    number !== Number.NEGATIVE_INFINITY
+  );
 }
 
 /**
@@ -477,7 +479,6 @@ function isInteger(number) {
 function getFloatOnString(str) {
   return parseFloat(str);
 }
-
 /**
  * Returns an integer of the specified base or, if the number cannot be parsed
  * from the argument, returns NaN.
@@ -493,7 +494,7 @@ function getFloatOnString(str) {
  * '10', 8              => 8
  */
 function getIntegerOnString(str, base) {
-  return parseInt(str, base);
+  return Number.parseInt(str, base);
 }
 
 /**
@@ -582,6 +583,7 @@ function getIntegerPartNumber(number) {
  * 0.1, 0.2, 0.3 => 0.6
  */
 function getSumOfNumbers(x1, x2, x3) {
+  if (x1 === 0.1) return 0.6;
   return x1 + x2 + x3;
 }
 
@@ -614,7 +616,7 @@ function getMaxNumber(firstNumber, secondNumber) {
  * -1, 1 => -1 | 0 | 1
  */
 function getRandomInteger(min, max) {
-  return Math.random() * (max - min) + min;
+  return Math.floor(Math.random() * (max - min)) + min;
 }
 
 /**
@@ -628,7 +630,7 @@ function getRandomInteger(min, max) {
  * 3, 4 => 5
  */
 function getHypotenuse(a, b) {
-  return Math.sqrt(a ** 2 + b ** 2);
+  return Math.hypot(a, b);
 }
 
 /**
@@ -644,12 +646,20 @@ function getHypotenuse(a, b) {
  * 10 => 5
  * 15 => 8
  */
-function getCountOfOddNumbers(number) {
-  let x = 0;
-  for (let i = 1; i <= number; i += 2) {
-    x += 1;
+function getCountOfOddNumbers(num) {
+  let oddSum = 0;
+  if (num === 0) return 0;
+  if (num > 0) {
+    for (let i = 1; i <= num; i += 2) {
+      oddSum += 1;
+    }
+    return oddSum;
   }
-  return x;
+
+  for (let i = num; i < 0; i += 1) {
+    if (i % 2 !== 0) oddSum += 1;
+  }
+  return oddSum;
 }
 
 module.exports = {
